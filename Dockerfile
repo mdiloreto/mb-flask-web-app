@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 ARG PYTHON_VERSION=3.12.2
-FROM python:${PYTHON_VERSION}-slim as base
+FROM python:${PYTHON_VERSION}-slim as build
 
 # Set environment variables for Python behavior
 ENV PYTHONDONTWRITEBYTECODE=1
