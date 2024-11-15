@@ -1,11 +1,7 @@
 from flask import Flask
 
-def create_app():
-    app = Flask(__name__)
-    app.config["ENVIRONMENT"] = "development"  # Default environment
+# Initialize the app directly
+app = Flask(__name__)
 
-    # Import and register blueprints
-    from .routes import main
-    app.register_blueprint(main)
-
-    return app
+# Import routes to register them
+from . import routes

@@ -1,1 +1,6 @@
-Flask
+requests
+beautifulsoup4
+azure-ai-translation-document
+google-cloud-translate==2.0.1
+flask
+gunicorn
