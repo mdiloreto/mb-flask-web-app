@@ -10,7 +10,7 @@ import logging
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
-
+output_dir = "/home" ## for Linux App Service Web App
 @app.route('/')
 def home():
     return render_template("index.html")
@@ -96,7 +96,7 @@ def transcribe_video():
         # Markdown conversion
         try:
             timestr = time.strftime("%Y%m%d-%H%M%S")
-            path = f"/mnt/sa_mount/output-{timestr}.md"
+            path = f"${output_dir}/output-{timestr}.md"
             converter = Convertmarkdown(content_en, path)
             markdown_content = converter.convert_to_markdown()
             saved_file = converter.save_to_markdown_file(markdown_content)
