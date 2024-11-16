@@ -199,9 +199,14 @@
                     const blob = await response.blob();
                     const downloadUrl = URL.createObjectURL(blob);
                     const link = document.getElementById('download-link');
+        
+                    // Generate timestamp for the file name
+                    const timestr = new Date().toISOString().replace(/[-:.T]/g, '').slice(0, 15);
+                    const filename = `translation-${timestr}.md`;
+        
                     link.href = downloadUrl;
-                    link.download = 'translation.md';
-                    link.textContent = 'Download Translation';
+                    link.download = filename; // Set dynamic filename
+                    link.textContent = `Download Translation (${filename})`;
                     toggleVisibility("download-link", true);
                     document.getElementById('status').textContent = 'Translation successful!';
                     document.getElementById('status').style.color = "green"; // Success color
