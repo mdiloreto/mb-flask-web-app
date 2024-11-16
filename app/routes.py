@@ -96,7 +96,7 @@ def transcribe_video():
         # Markdown conversion
         try:
             timestr = time.strftime("%Y%m%d-%H%M%S")
-            path = f"/app/outputs/output-{timestr}.md"
+            path = f"/mnt/sa_mount/output-{timestr}.md"
             converter = Convertmarkdown(content_en, path)
             markdown_content = converter.convert_to_markdown()
             saved_file = converter.save_to_markdown_file(markdown_content)
