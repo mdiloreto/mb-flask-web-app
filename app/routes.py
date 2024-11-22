@@ -1,4 +1,3 @@
-import requests
 from flask import Flask, request, jsonify, send_file, render_template
 from app import app
 from app.services.scraper import Scraper
@@ -7,10 +6,13 @@ from app.services.markdown_ft import Convertmarkdown
 from app.services.translator_gcp import Translator_gcp
 import time
 import logging
+import os 
+
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
-output_dir = "/home" ## for Linux App Service Web App
+output_dir = os.getenv("FLASK_OUTPUT_DIR", "/app/outputs") ## Default for local tests:"/app/outputs" ||  "/home" for Linux App Service Web App
+
 @app.route('/')
 def home():
     return render_template("index.html")
