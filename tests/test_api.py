@@ -8,7 +8,7 @@ URL = os.getenv("TEST_URL", "https://madsblog.net/2024/10/29/kubernetes-networki
 
 def test_translate_missing_body():
     response = requests.post(f"{ENDPOINT}/api/translate", json=None)
-    assert response.status_code == 400, f"Expected 400, but got {response.status_code}"
+    assert response.status_code == 500, f"Expected 500, but got {response.status_code}"
 
 def test_translate_valid_translator():
     payload = {

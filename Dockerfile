@@ -24,8 +24,6 @@ RUN adduser \
 # Create the outputs directory with the right permissions
 RUN mkdir /app/outputs && chown appuser:appuser /app/outputs
 
-RUN apk add --no-cache gcc musl-dev linux-headers python3-dev libffi-dev
-
 # Copy dependencies first for efficient caching
 COPY requirements.txt .
 
